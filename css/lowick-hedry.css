@@ -542,34 +542,52 @@ p { margin: 0 0 1em; text-wrap: pretty; }
    ============================================================ */
 .service-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 24px;
 }
 .service-card {
-  border: 1px solid var(--whisper-60);
+  min-height: clamp(360px, 38vw, 500px);
+  border: 0;
   border-radius: var(--r-card);
-  background: #fff;
-  padding: clamp(28px, 3vw, 40px);
+  background: var(--anchor);
+  color: var(--off-white);
+  padding: clamp(22px, 2.2vw, 34px);
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  transition: border-color var(--dur-base) var(--ease-out), transform var(--dur-base) var(--ease-out), box-shadow var(--dur-base) var(--ease-out);
+  justify-content: space-between;
+  gap: clamp(48px, 8vw, 120px);
+  overflow: hidden;
+  transition: transform var(--dur-base) var(--ease-out), box-shadow var(--dur-base) var(--ease-out);
 }
 .service-card:hover {
-  border-color: var(--whisper);
   transform: translateY(-3px);
   box-shadow: var(--sh-2);
 }
+.service-card:nth-child(2) { background: var(--signal); }
+.service-card:nth-child(3) { background: var(--civic); }
+.service-card:nth-child(4) { background: var(--anchor-deep); }
 .service-card .num {
+  display: none;
   font-family: var(--font-sans);
   font-size: var(--fs-caption);
   font-weight: 600;
   letter-spacing: 0.14em;
   color: var(--signal);
 }
-.service-card h3 { color: var(--anchor); }
-.service-card p { color: var(--ink-soft); margin: 0; font-size: var(--fs-body-sm); line-height: 1.6; }
-.service-card .rule { width: 36px; height: 2px; background: var(--whisper); }
+.service-card h3 {
+  color: var(--off-white);
+  font-size: var(--fs-h2);
+  line-height: 1.02;
+  letter-spacing: -0.026em;
+}
+.service-card p {
+  color: var(--off-white);
+  margin: 0;
+  font-size: var(--fs-body);
+  font-weight: 400;
+  line-height: 1.55;
+}
+.service-card .rule { display: none; }
 
 /* ============================================================
    How we help / situations
@@ -935,7 +953,8 @@ p { margin: 0 0 1em; text-wrap: pretty; }
    ============================================================ */
 @media (max-width: 980px) {
   .stat-grid { grid-template-columns: repeat(2, 1fr); }
-  .service-grid { grid-template-columns: 1fr; }
+  .service-grid { grid-template-columns: repeat(2, 1fr); }
+  .service-card { min-height: 360px; }
   .situations { grid-template-columns: 1fr; }
   .quote-grid { grid-template-columns: 1fr; }
   .profile-grid { grid-template-columns: repeat(2, 1fr); }
@@ -965,6 +984,11 @@ p { margin: 0 0 1em; text-wrap: pretty; }
 }
 @media (max-width: 560px) {
   .stat-grid { grid-template-columns: 1fr; }
+  .service-grid { grid-template-columns: 1fr; }
+  .service-card {
+    min-height: 300px;
+    padding: 22px;
+  }
   .profile-grid { grid-template-columns: 1fr; }
   .quote-card {
     grid-template-columns: 16px minmax(0, 1fr);

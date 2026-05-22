@@ -61,7 +61,7 @@
   --s-1: 4px;  --s-2: 8px;  --s-3: 12px; --s-4: 16px; --s-5: 24px;
   --s-6: 32px; --s-7: 48px; --s-8: 64px; --s-9: 96px; --s-10: 128px;
 
-  --maxw:          1400px;
+  --maxw:          1600px;
   --maxw-narrow:   880px;
 
   /* ---- Radii ---- */
@@ -291,8 +291,10 @@ p { margin: 0 0 1em; text-wrap: pretty; }
    Site header / nav
    ============================================================ */
 .site-header {
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
   z-index: 100;
   background: rgba(236, 242, 248, 0.85);
   backdrop-filter: blur(12px);
@@ -300,7 +302,7 @@ p { margin: 0 0 1em; text-wrap: pretty; }
   border-bottom: 1px solid var(--whisper-60);
 }
 .site-header.on-dark {
-  background: rgba(17, 30, 48, 0.72);
+  background: rgba(17, 30, 48, 0.50);
   border-bottom-color: var(--night-line-soft);
 }
 .nav {
@@ -351,8 +353,12 @@ p { margin: 0 0 1em; text-wrap: pretty; }
    Hero (dark gradient)
    ============================================================ */
 .hero {
+  min-height: 100vh;
   padding-block: clamp(72px, 13vh, 150px);
+  display: flex;
+  align-items: center;
 }
+.hero > .wrap { width: 100%; }
 .hero .eyebrow { color: var(--whisper); }
 .hero h1, .hero .display {
   font-size: var(--fs-display-l);

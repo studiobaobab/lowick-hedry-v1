@@ -536,7 +536,7 @@ p { margin: 0 0 1em; text-wrap: pretty; }
 .subhero h1 {
   font-size: var(--fs-display);
   color: var(--off-white);
-  max-width: 18ch;
+  max-width: 25ch;
   font-variation-settings: "opsz" 144, "SOFT" 24, "WONK" 0;
 }
 .subhero .lead { color: var(--whisper-60); margin-top: 20px; }
@@ -636,27 +636,29 @@ p { margin: 0 0 1em; text-wrap: pretty; }
   color: var(--whisper);
   align-self: flex-end;
   text-align: right;
-  max-width: 14ch;
+  max-width: 20ch;
   line-height: 1.35;
   margin-top: auto;
+}
+.stat-box .corner + .stat-label::before {
+  content: "↗";
+  color: var(--signal);
+  font-weight: 800;
+  margin-right: 0.45em;
 }
 .stat-box .stat-figure {
   font-family: var(--font-display);
   font-weight: 500;
-  font-size: clamp(40px, 4vw, 58px);
+  font-size: clamp(44px, 4.4vw, 64px);
   line-height: 0.95;
   letter-spacing: -0.035em;
   color: var(--off-white);
   font-variant-numeric: tabular-nums;
 }
-.stat-box .stat-figure .reddot { color: var(--signal); }
+.stat-box .stat-figure .reddot { color: var(--signal); font-weight: 800; }
 .stat-box .corner {
-  position: static;
-  display: inline-flex;
-  align-self: flex-end;
-  margin-top: 12px;
+  display: none;
   color: var(--whisper);
-  opacity: 0.7;
 }
 .stat-box .corner svg { width: 22px; height: 22px; }
 /* secondary plain note row under stats */
@@ -846,7 +848,7 @@ p { margin: 0 0 1em; text-wrap: pretty; }
 
 .profile-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 28px;
 }
 .profile {
@@ -858,7 +860,7 @@ p { margin: 0 0 1em; text-wrap: pretty; }
   border-radius: var(--r-card);
   overflow: hidden;
   border: 1px solid var(--whisper-60);
-  aspect-ratio: 1 / 1;
+  aspect-ratio: 4 / 5;
   background: var(--whisper-20);
   position: relative;
 }

@@ -375,7 +375,7 @@ p { margin: 0 0 1em; text-wrap: pretty; }
    Hero (dark gradient)
    ============================================================ */
 .hero {
-  min-height: 100vh;
+  min-height: 90vh;
   padding-block: clamp(72px, 13vh, 150px);
   display: flex;
   align-items: center;
@@ -724,6 +724,7 @@ p { margin: 0 0 1em; text-wrap: pretty; }
   background: var(--whisper-20);
 }
 .team-teaser .photo img { width: 100%; height: 100%; object-fit: cover; }
+.team-teaser h2 { margin-bottom: var(--s-4); }
 
 .profile-grid {
   display: grid;

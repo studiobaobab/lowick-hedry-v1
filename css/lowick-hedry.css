@@ -856,7 +856,7 @@ p { margin: 0 0 1em; text-wrap: pretty; }
    CTA band
    ============================================================ */
 .cta-band { text-align: center; }
-.cta-band h2 { color: var(--off-white); max-width: 20ch; margin: 0 auto var(--s-5); }
+.cta-band h2 { color: var(--off-white); max-width: 30ch; margin: 0 auto var(--s-5); }
 .cta-band p { color: var(--whisper-60); max-width: 52ch; margin: 0 auto var(--s-7); }
 .cta-band .cta-row { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
 

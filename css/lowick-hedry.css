@@ -720,7 +720,7 @@ p { margin: 0 0 1em; text-wrap: pretty; }
   border-radius: var(--r-card);
   overflow: hidden;
   border: 1px solid var(--whisper-60);
-  aspect-ratio: 4 / 3;
+  aspect-ratio: 16 / 10;
   background: var(--whisper-20);
 }
 .team-teaser .photo img { width: 100%; height: 100%; object-fit: cover; }

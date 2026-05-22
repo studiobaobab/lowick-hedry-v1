@@ -164,13 +164,8 @@ p { margin: 0 0 1em; text-wrap: pretty; }
 
 /* The Anchor / Signal dot used in the wordmark and headlines */
 .dot {
-  display: inline-block;
-  width: 0.16em; height: 0.16em;
-  background: var(--signal);
-  border-radius: 999px;
-  vertical-align: 0.08em;
+  color: var(--signal);
   margin-left: 0.04em;
-  transform: translateY(-0.02em);
 }
 
 /* ============================================================

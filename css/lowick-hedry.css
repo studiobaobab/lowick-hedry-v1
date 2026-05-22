@@ -9,7 +9,8 @@
      Only tag chips are pill-shaped.
    - Two typefaces only: Fraunces (display) + Rethink Sans (UI).
    - Off White is the dominant surface; Anchor Blue dark sections
-     use the official dark gradient. Signal-red is the accent on
+     use the official dark gradient. Light gradient sections are
+     available but applied deliberately. Signal-red is the accent on
      light; Light Yellow is reserved for the dark gradient only.
    - Type-led, editorial, calm. No SaaS rounding, no emoji.
    ============================================================ */
@@ -36,7 +37,7 @@
   --graphite:      #4F719C;
   --stone:         #8A9FB7;
 
-  /* Dark-section surface (matches the coming-soon gradient base) */
+  /* Dark-section surfaces */
   --night:         #111E30;
   --night-card:    #16263C;
   --night-line:    rgba(255,255,255,0.12);
@@ -278,6 +279,32 @@ p { margin: 0 0 1em; text-wrap: pretty; }
 .theme-dark h1, .theme-dark h2, .theme-dark h3, .theme-dark .display { color: var(--off-white); }
 .theme-dark .lead, .theme-dark p { color: var(--whisper-60); }
 .theme-dark a { color: var(--off-white); }
+
+/* Light section using the official Lowick Hedry light gradient */
+.theme-light {
+  position: relative;
+  background: var(--off-white);
+  color: var(--ink);
+  overflow: hidden;
+}
+.theme-light::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 82% 42% at 94% 2%, rgba(13, 82, 187, 0.83) 0%, rgba(46, 111, 205, 0.63) 28%, rgba(151, 182, 224, 0.29) 55%, transparent 76%),
+    radial-gradient(ellipse 78% 50% at 0% 50%, rgba(47, 97, 178, 0.70) 0%, rgba(79, 130, 202, 0.46) 31%, rgba(175, 199, 229, 0.26) 58%, transparent 80%),
+    radial-gradient(ellipse 84% 48% at 36% 24%, rgba(236, 242, 248, 0.92) 0%, rgba(206, 219, 238, 0.49) 45%, transparent 74%),
+    radial-gradient(ellipse 70% 46% at 82% 58%, rgba(255, 255, 255, 0.96) 0%, rgba(250, 250, 250, 0.78) 40%, transparent 70%),
+    radial-gradient(ellipse 92% 62% at 76% 94%, rgba(255, 255, 255, 1) 0%, rgba(250, 250, 250, 0.82) 50%, transparent 76%),
+    linear-gradient(160deg, #DCE6F3 0%, #EEF3F8 29%, #C8D8EC 50%, #F7F9FB 72%, #FAFAFA 100%);
+  z-index: 0;
+  pointer-events: none;
+}
+.theme-light > * { position: relative; z-index: 1; }
+.theme-light h1, .theme-light h2, .theme-light h3, .theme-light .display { color: var(--anchor); }
+.theme-light .lead, .theme-light p { color: var(--ink-soft); }
+.theme-light a { color: var(--anchor); }
 
 /* Light-tint band (Whisper-20) for alternating rhythm */
 .theme-tint { background: var(--whisper-20); }

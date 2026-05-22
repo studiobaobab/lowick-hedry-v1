@@ -476,7 +476,7 @@ p { margin: 0 0 1em; text-wrap: pretty; }
   min-height: 188px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
   background: rgba(255,255,255,0.03);
   overflow: hidden;
   transition: border-color var(--dur-base) var(--ease-out), transform var(--dur-base) var(--ease-out);
@@ -493,6 +493,7 @@ p { margin: 0 0 1em; text-wrap: pretty; }
   text-align: right;
   max-width: 14ch;
   line-height: 1.35;
+  margin-top: auto;
 }
 .stat-box .stat-figure {
   font-family: var(--font-display);
@@ -505,26 +506,14 @@ p { margin: 0 0 1em; text-wrap: pretty; }
 }
 .stat-box .stat-figure .reddot { color: var(--signal); }
 .stat-box .corner {
-  position: absolute;
-  bottom: 22px;
-  right: 24px;
+  position: static;
+  display: inline-flex;
+  align-self: flex-end;
+  margin-top: 12px;
   color: var(--whisper);
   opacity: 0.7;
 }
 .stat-box .corner svg { width: 22px; height: 22px; }
-/* image stat box (first, per reference) */
-.stat-box.is-image { padding: 0; border: 0; min-height: 188px; }
-.stat-box.is-image img { width: 100%; height: 100%; object-fit: cover; position: absolute; inset: 0; }
-.stat-box.is-image .scrim {
-  position: absolute; inset: 0;
-  background: linear-gradient(180deg, rgba(10,28,48,0.10) 0%, rgba(10,28,48,0.78) 100%);
-}
-.stat-box.is-image .stat-figure,
-.stat-box.is-image .stat-label,
-.stat-box.is-image .corner { position: relative; z-index: 2; }
-.stat-box.is-image { display: grid; grid-template-rows: 1fr auto; padding: 24px; }
-.stat-box.is-image .stat-label { z-index: 2; }
-
 /* secondary plain note row under stats */
 .stat-note {
   margin-top: 28px;

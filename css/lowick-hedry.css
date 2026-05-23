@@ -1023,8 +1023,8 @@ p { margin: 0 0 1em; text-wrap: pretty; }
   grid-template-columns: 1.4fr 1fr 1fr 1fr;
   gap: 40px;
 }
-.footer-brand img { height: 30px; margin-bottom: 20px; }
-.footer-brand p { color: var(--whisper); max-width: 32ch; font-size: var(--fs-body-sm); line-height: 1.6; }
+.footer-brand img { height: 75px; margin-bottom: 20px; }
+.footer-brand p { color: var(--whisper); max-width: 45ch; font-size: var(--fs-body-sm); line-height: 1.6; }
 .footer-col h4 {
   font-family: var(--font-sans);
   font-size: 12px;
@@ -1038,11 +1038,39 @@ p { margin: 0 0 1em; text-wrap: pretty; }
 .footer-col a, .footer-col span.fline {
   color: var(--whisper-60);
   text-decoration: none;
+  border-bottom: 1px solid transparent;
   font-size: var(--fs-body-sm);
   line-height: 1.5;
-  transition: color var(--dur-base) var(--ease-out);
+  transition:
+    color var(--dur-base) var(--ease-out),
+    border-color var(--dur-base) var(--ease-out);
 }
-.footer-col a:hover { color: var(--off-white); }
+.footer-col a:hover {
+  color: var(--off-white);
+  border-bottom-color: var(--signal);
+}
+.footer-office-link {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+.footer-office-link svg {
+  width: 14px;
+  height: 14px;
+  flex: 0 0 auto;
+  margin-top: 3px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.7;
+}
+.footer-podcast-logo {
+  display: block;
+  width: min(85px, 100%);
+  height: auto;
+  margin: -2px 0 16px;
+}
 .footer-social { display: flex; gap: 12px; margin-top: 4px; }
 .footer-social a {
   width: 36px; height: 36px;

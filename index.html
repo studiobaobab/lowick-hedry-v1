@@ -245,12 +245,12 @@
     <!-- ===================== TESTIMONIALS ===================== -->
     <section class="section">
       <div class="wrap">
-        <div class="section-head reveal">
+        <div class="section-head center reveal">
           <p class="eyebrow">In their words</p>
           <h2>What clients say.</h2>
         </div>
-        <div class="quote-grid">
-          <figure class="quote-card reveal">
+        <div class="quote-grid testimonial-slider" data-testimonial-slider>
+          <figure class="quote-card reveal is-active" data-testimonial-slide>
             <span class="q-mark" aria-hidden="true">&ldquo;</span>
             <blockquote>Lorem ipsum dolor sit amet, consectetur adipiscing elit. They read the politics before anyone else did and gave us a route through that was calm, clear and entirely workable.</blockquote>
             <figcaption class="attr">
@@ -258,7 +258,7 @@
               <span class="role">Role placeholder, Organisation placeholder</span>
             </figcaption>
           </figure>
-          <figure class="quote-card reveal d1">
+          <figure class="quote-card reveal d1" data-testimonial-slide aria-hidden="true">
             <span class="q-mark" aria-hidden="true">&ldquo;</span>
             <blockquote>Sed do eiusmod tempor incididunt ut labore. Senior, commercially literate and unflappable under pressure — exactly the counsel you want when the stakes are at their highest.</blockquote>
             <figcaption class="attr">
@@ -266,7 +266,7 @@
               <span class="role">Role placeholder, Organisation placeholder</span>
             </figcaption>
           </figure>
-          <figure class="quote-card reveal d2">
+          <figure class="quote-card reveal d2" data-testimonial-slide aria-hidden="true">
             <span class="q-mark" aria-hidden="true">&ldquo;</span>
             <blockquote>Ut enim ad minim veniam, quis nostrud exercitation. Strategy and execution from one team — they shaped the decision and then made it happen.</blockquote>
             <figcaption class="attr">
@@ -274,6 +274,11 @@
               <span class="role">Role placeholder, Organisation placeholder</span>
             </figcaption>
           </figure>
+        </div>
+        <div class="testimonial-dots" aria-label="Choose testimonial">
+          <button class="testimonial-dot is-active" type="button" aria-label="Show testimonial 1" aria-current="true" data-testimonial-dot></button>
+          <button class="testimonial-dot" type="button" aria-label="Show testimonial 2" data-testimonial-dot></button>
+          <button class="testimonial-dot" type="button" aria-label="Show testimonial 3" data-testimonial-dot></button>
         </div>
       </div>
     </section>
@@ -287,7 +292,7 @@
           </div>
           <div class="reveal d1">
             <p class="eyebrow">The team</p>
-            <h2>A senior team, built for complex decisions.</h2>
+            <h2>A senior team,<br> built for complex decisions.</h2>
             <p>Lowick Hedry brings together senior people with deep political understanding, commercial judgement and experience across planning, public affairs, corporate communications and strategic counsel. Our strength is not only what we know — it is how we apply judgement, relationships and experience on your behalf.</p>
             <p style="margin-top:8px;"><a class="btn btn-anchor" href="team.html">Meet the team <span class="arrow" aria-hidden="true">&rarr;</span></a></p>
           </div>

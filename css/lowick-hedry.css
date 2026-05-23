@@ -892,20 +892,7 @@ p { margin: 0 0 1em; text-wrap: pretty; }
 .profile .socials svg { width: 16px; height: 16px; }
 
 /* placeholder profile card */
-.profile.is-placeholder .portrait { filter: grayscale(1); opacity: 0.55; }
-.profile.is-placeholder .portrait::after {
-  content: "Name TBC";
-  position: absolute; inset: auto 0 0 0;
-  background: rgba(10,44,74,0.82);
-  color: #fff;
-  font-family: var(--font-sans);
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  text-align: center;
-  padding: 7px;
-}
+.profile.is-placeholder .portrait { background: #c8c8c8; }
 .profile.is-placeholder h3,
 .profile.is-placeholder .role { color: var(--stone); }
 

@@ -531,8 +531,10 @@ p { margin: 0 0 1em; text-wrap: pretty; }
   }
 }
 
-/* Sub-page hero (Team / Contact) — shorter */
-.subhero { padding-block: clamp(56px, 9vh, 104px); }
+/* Sub-page hero (Team / Contact) — accounts for the fixed header */
+.subhero {
+  padding-block: clamp(72px, 13vh, 150px) clamp(56px, 9vh, 104px);
+}
 .subhero h1 {
   font-size: var(--fs-display);
   color: var(--off-white);
@@ -1261,24 +1263,41 @@ p { margin: 0 0 1em; text-wrap: pretty; }
   .footer-top { grid-template-columns: 1fr 1fr; gap: 32px; }
   .footer-brand { grid-column: 1 / -1; }
 
-  .nav-toggle { display: inline-flex; }
+  .nav-toggle {
+    display: inline-flex;
+    color: var(--highlight);
+  }
   .nav-links {
     position: absolute;
     top: 100%;
     left: 0; right: 0;
+    min-height: calc(100dvh - 63px);
     background: var(--off-white);
     border-bottom: 1px solid var(--whisper-60);
     flex-direction: column;
-    align-items: flex-start;
-    gap: 4px;
-    padding: 14px clamp(22px, 5vw, 64px) 22px;
+    align-items: center;
+    justify-content: center;
+    gap: clamp(22px, 5vh, 42px);
+    padding: 40px clamp(22px, 5vw, 64px);
     display: none;
   }
   .on-dark .nav-links { background: var(--night); border-bottom-color: var(--night-line); }
   .nav-links.open { display: flex; }
-  .nav-links li { width: 100%; }
-  .nav-links a { display: block; padding: 10px 0; width: 100%; font-size: 17px; }
-  .nav-links .btn { margin-top: 8px; }
+  .nav-links li { width: auto; text-align: center; }
+  .nav-links a {
+    display: inline-flex;
+    justify-content: center;
+    padding: 8px 0;
+    width: auto;
+    font-size: 20px;
+    line-height: 1.2;
+    text-align: center;
+  }
+  .nav-links .btn {
+    margin-top: 4px;
+    padding: 13px 20px;
+    font-size: 15px;
+  }
 }
 @media (max-width: 560px) {
   .hero {
@@ -1303,7 +1322,24 @@ p { margin: 0 0 1em; text-wrap: pretty; }
   }
   .quote-card .q-mark { font-size: 64px; height: 40px; }
   .quote-card blockquote { font-size: var(--fs-h2); line-height: 1.24; }
+  .testimonials-section { display: none; }
   .footer-top { grid-template-columns: 1fr; }
+  .footer-brand img { height: 52px; }
+  .footer-firm { display: none; }
+  .footer-col .footer-podcast-logo + ul {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0;
+  }
+  .footer-col .footer-podcast-logo + ul li {
+    display: inline-flex;
+    align-items: center;
+  }
+  .footer-col .footer-podcast-logo + ul li:not(:last-child)::after {
+    content: "|";
+    color: var(--whisper-60);
+    margin-inline: 8px;
+  }
   .footer-bottom { flex-direction: column; }
   .form-grid { grid-template-columns: 1fr; }
 }

@@ -102,16 +102,16 @@ img { max-width: 100%; display: block; }
 /* ============================================================
    Typography helpers
    ============================================================ */
+
 h1, h2, h3, h4 {
   font-family: var(--font-display);
   font-weight: 500;
-  letter-spacing: -0.022em;
   color: var(--ink);
   margin: 0;
   font-variation-settings: "opsz" 144, "SOFT" 0, "WONK" 0;
   text-wrap: balance;
 }
-h1 { font-size: var(--fs-h1); line-height: 1.05; letter-spacing: -0.028em; }
+h1 { font-size: var(--fs-h1); line-height: 1.05;letter-spacing: -0.01em;}
 h2 {
   font-size: var(--fs-h2);
   line-height: 1.16;
@@ -135,7 +135,7 @@ h4 {
   font-weight: 500;
   font-size: var(--fs-display);
   line-height: 1.04;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.01em;
   font-variation-settings: "opsz" 144, "SOFT" 20, "WONK" 0;
   text-wrap: balance;
   margin: 0;
@@ -412,7 +412,6 @@ p { margin: 0 0 1em; text-wrap: pretty; }
 .hero h1, .hero .display {
   font-size: var(--fs-display-l);
   line-height: 1.02;
-  letter-spacing: -0.03em;
   color: var(--off-white);
   max-width: 17ch;
   font-variation-settings: "opsz" 144, "SOFT" 28, "WONK" 0;
@@ -540,7 +539,7 @@ p { margin: 0 0 1em; text-wrap: pretty; }
 .subhero h1 {
   font-size: var(--fs-display);
   color: var(--off-white);
-  max-width: 25ch;
+  max-width: 30ch;
   font-variation-settings: "opsz" 144, "SOFT" 24, "WONK" 0;
 }
 .subhero .lead { color: var(--whisper-60); margin-top: 20px; }
@@ -555,7 +554,6 @@ p { margin: 0 0 1em; text-wrap: pretty; }
   align-items: start;
 }
 .split.center-y { align-items: center; }
-.split .display { letter-spacing: -0.03em; }
 .split p { color: var(--ink-soft); }
 .split p:last-child { margin-bottom: 0; }
 

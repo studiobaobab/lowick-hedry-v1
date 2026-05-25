@@ -37,6 +37,111 @@
     revealEls.forEach(function (el) { io.observe(el); });
   }
 
+  /* ----- Draggable client logo stripe ----- */
+  var logoMarquees = document.querySelectorAll('[data-logo-marquee]');
+
+  function initLogoMarquee(marquee) {
+    var track = marquee.querySelector('.marquee-track');
+    if (!track) return;
+
+    var offset = 0;
+    var loopWidth = 0;
+    var autoSpeed = reduce ? 0 : 34;
+    var isDragging = false;
+    var lastX = 0;
+    var lastTime = 0;
+    var velocity = 0;
+    var previousFrame = null;
+
+    function measure() {
+      loopWidth = track.scrollWidth / 2;
+      normalizeOffset();
+      render();
+    }
+
+    function normalizeOffset() {
+      if (!loopWidth) return;
+      offset = ((offset % loopWidth) + loopWidth) % loopWidth;
+      if (offset > 0) offset -= loopWidth;
+    }
+
+    function render() {
+      track.style.setProperty('--marquee-x', offset + 'px');
+    }
+
+    function tick(timestamp) {
+      if (previousFrame === null) previousFrame = timestamp;
+
+      var delta = Math.min(timestamp - previousFrame, 48) / 1000;
+      previousFrame = timestamp;
+
+      if (!isDragging) {
+        offset -= autoSpeed * delta;
+        if (Math.abs(velocity) > 1) {
+          offset += velocity * delta;
+          velocity *= Math.pow(0.92, delta * 60);
+        } else {
+          velocity = 0;
+        }
+        normalizeOffset();
+        render();
+      }
+
+      window.requestAnimationFrame(tick);
+    }
+
+    marquee.classList.add('is-draggable');
+    track.querySelectorAll('img').forEach(function (image) {
+      image.setAttribute('draggable', 'false');
+    });
+
+    marquee.addEventListener('pointerdown', function (event) {
+      if (event.button !== undefined && event.button !== 0) return;
+
+      isDragging = true;
+      lastX = event.clientX;
+      lastTime = event.timeStamp || performance.now();
+      velocity = 0;
+      marquee.classList.add('is-dragging');
+      marquee.setPointerCapture(event.pointerId);
+    });
+
+    marquee.addEventListener('pointermove', function (event) {
+      if (!isDragging) return;
+
+      var now = event.timeStamp || performance.now();
+      var deltaX = event.clientX - lastX;
+      var deltaTime = Math.max(now - lastTime, 16);
+
+      offset += deltaX;
+      velocity = deltaX / deltaTime * 1000;
+      lastX = event.clientX;
+      lastTime = now;
+
+      normalizeOffset();
+      render();
+    });
+
+    function endDrag(event) {
+      if (!isDragging) return;
+
+      isDragging = false;
+      marquee.classList.remove('is-dragging');
+      if (marquee.hasPointerCapture(event.pointerId)) {
+        marquee.releasePointerCapture(event.pointerId);
+      }
+    }
+
+    marquee.addEventListener('pointerup', endDrag);
+    marquee.addEventListener('pointercancel', endDrag);
+    window.addEventListener('resize', measure);
+
+    measure();
+    window.requestAnimationFrame(tick);
+  }
+
+  logoMarquees.forEach(initLogoMarquee);
+
   /* ----- Proof stats counters ----- */
   var statFigures = document.querySelectorAll('.stat-figure');
   var counterDuration = 1200;

@@ -1314,6 +1314,60 @@ p { margin: 0 0 1em; text-wrap: pretty; }
     padding: 22px;
   }
   .profile-grid { grid-template-columns: 1fr; }
+  .profile {
+    display: grid;
+    gap: 0;
+  }
+  .profile .portrait,
+  .profile > div:not(.portrait):not(.tags):not(.socials),
+  .profile .socials {
+    grid-area: 1 / 1;
+  }
+  .profile .portrait::after {
+    content: "";
+    position: absolute;
+    inset: auto 0 0;
+    height: 42%;
+    background: linear-gradient(to top, rgba(5, 26, 46, 0.86), rgba(5, 26, 46, 0));
+    pointer-events: none;
+    z-index: 1;
+  }
+  .profile > div:not(.portrait):not(.tags):not(.socials) {
+    align-self: end;
+    justify-self: start;
+    width: calc(100% - 112px);
+    padding: 0 0 22px 22px;
+    z-index: 2;
+  }
+  .profile h3 {
+    color: var(--off-white);
+    text-shadow: 0 1px 10px rgba(5, 26, 46, 0.45);
+  }
+  .profile .role {
+    color: var(--whisper);
+    text-shadow: 0 1px 8px rgba(5, 26, 46, 0.45);
+  }
+  .profile .bio,
+  .profile .tags {
+    display: none;
+  }
+  .profile .socials {
+    align-self: end;
+    justify-self: end;
+    padding: 0 22px 22px 0;
+    z-index: 2;
+  }
+  .profile .socials a {
+    color: var(--off-white);
+    background: rgba(250, 250, 250, 0.12);
+    border-color: rgba(250, 250, 250, 0.42);
+    backdrop-filter: blur(6px);
+  }
+  .profile .socials a:hover {
+    background: var(--off-white);
+    color: var(--anchor);
+    border-color: var(--off-white);
+  }
   .partner-grid { flex-direction: column; }
   .partner-logo { margin-bottom: 22px; }
   .partner-name { margin-bottom: 18px; }

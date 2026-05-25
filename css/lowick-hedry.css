@@ -265,6 +265,7 @@ p { margin: 0 0 1em; text-wrap: pretty; }
 
 .section-head { max-width: 760px; margin-bottom: clamp(36px, 5vh, 56px); }
 .section-head.center { margin-inline: auto; text-align: center; }
+.testimonials-section .section-head { margin-bottom: 24px; }
 .section-head.center .eyebrow { justify-content: center; }
 .section-head h2 { margin-bottom: var(--s-4); }
 .section-head p { color: var(--ink-soft); max-width: 60ch; margin: 0; }

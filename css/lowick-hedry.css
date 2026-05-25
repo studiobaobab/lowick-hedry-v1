@@ -307,12 +307,13 @@ p { margin: 0 0 1em; text-wrap: pretty; }
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(ellipse 82% 42% at 94% 2%, rgba(13, 82, 187, 0.83) 0%, rgba(46, 111, 205, 0.63) 28%, rgba(151, 182, 224, 0.29) 55%, transparent 76%),
-    radial-gradient(ellipse 78% 50% at 0% 50%, rgba(47, 97, 178, 0.70) 0%, rgba(79, 130, 202, 0.46) 31%, rgba(175, 199, 229, 0.26) 58%, transparent 80%),
-    radial-gradient(ellipse 84% 48% at 36% 24%, rgba(236, 242, 248, 0.92) 0%, rgba(206, 219, 238, 0.49) 45%, transparent 74%),
+    radial-gradient(ellipse 42% 34% at 92% 92%, rgba(184, 204, 230, 0.34) 0%, rgba(220, 230, 243, 0.20) 42%, transparent 72%),
+    radial-gradient(ellipse 82% 42% at 94% 2%, rgba(92, 143, 211, 0.34) 0%, rgba(124, 164, 216, 0.27) 28%, rgba(187, 206, 232, 0.18) 55%, transparent 76%),
+    radial-gradient(ellipse 78% 50% at 0% 50%, rgba(103, 147, 205, 0.30) 0%, rgba(139, 173, 217, 0.22) 31%, rgba(196, 212, 233, 0.16) 58%, transparent 80%),
+    radial-gradient(ellipse 84% 48% at 36% 24%, rgba(236, 242, 248, 0.92) 0%, rgba(219, 229, 242, 0.38) 45%, transparent 74%),
     radial-gradient(ellipse 70% 46% at 82% 58%, rgba(255, 255, 255, 0.96) 0%, rgba(250, 250, 250, 0.78) 40%, transparent 70%),
     radial-gradient(ellipse 92% 62% at 76% 94%, rgba(255, 255, 255, 1) 0%, rgba(250, 250, 250, 0.82) 50%, transparent 76%),
-    linear-gradient(160deg, #DCE6F3 0%, #EEF3F8 29%, #C8D8EC 50%, #F7F9FB 72%, #FAFAFA 100%);
+    linear-gradient(160deg, #E8EFF8 0%, #EEF3F8 29%, #DEE9F5 50%, #F7F9FB 72%, #FAFAFA 100%);
   z-index: 0;
   pointer-events: none;
 }
@@ -722,10 +723,12 @@ p { margin: 0 0 1em; text-wrap: pretty; }
   color: var(--signal);
 }
 .service-card h3 {
+  font-family: var(--font-sans);
+  font-weight: 600;
   color: var(--off-white);
-  font-size: var(--fs-h2);
-  line-height: 1.02;
-  letter-spacing: -0.026em;
+  font-size: var(--fs-h3);
+  line-height: 1.24;
+  letter-spacing: 0;
 }
 .service-card p {
   color: var(--off-white);
@@ -761,13 +764,12 @@ p { margin: 0 0 1em; text-wrap: pretty; }
 .situation .ix svg { width: 24px; height: 24px; }
 .situation p {
   margin: 0;
-  font-family: var(--font-display);
-  font-weight: 500;
+  font-family: var(--font-sans);
+  font-weight: 600;
   font-size: clamp(17px, 1.3vw, 20px);
   line-height: 1.36;
   letter-spacing: 0;
   color: var(--anchor);
-  font-variation-settings: "opsz" 28, "SOFT" 8;
 }
 
 /* ============================================================

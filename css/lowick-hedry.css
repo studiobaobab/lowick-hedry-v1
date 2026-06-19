@@ -940,6 +940,7 @@ p { margin: 0 0 1em; text-wrap: pretty; }
 }
 .profile .bio { font-size: var(--fs-body-sm); color: var(--ink-soft); line-height: 1.6; margin: 0; }
 .profile .tags { display: flex; flex-wrap: wrap; gap: 8px; }
+.wider-team .profile .tag-chip { background: #fff; }
 .profile .socials { display: flex; gap: 12px; margin-top: 2px; }
 .profile .socials a {
   width: 34px; height: 34px;

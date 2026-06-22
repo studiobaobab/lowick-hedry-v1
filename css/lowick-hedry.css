@@ -205,7 +205,7 @@ p { margin: 0 0 1em; text-wrap: pretty; }
 }
 .btn:active { transform: scale(0.99); }
 .btn .arrow { transition: transform var(--dur-base) var(--ease-out); }
-.btn:hover .arrow { transform: translateX(3px); }
+.btn:hover .arrow { transform: translate(3px, -3px); }
 
 .btn-signal  { background: var(--signal); color: #fff; }
 .btn-signal:hover { background: var(--signal-deep); }
@@ -243,7 +243,7 @@ p { margin: 0 0 1em; text-wrap: pretty; }
   font-weight: 500;
   letter-spacing: 0.02em;
   padding: 5px 13px;
-  border-radius: var(--r-tag);
+  border-radius: var(--r-card);
   background: var(--whisper-20);
   color: var(--anchor);
   display: inline-block;
@@ -1542,9 +1542,14 @@ p { margin: 0 0 1em; text-wrap: pretty; }
 .news-card[hidden] { display: none; }
 .news-card-media { display: block; aspect-ratio: 1.42 / 1; margin-bottom: 24px; overflow: hidden; background: var(--anchor); }
 .news-card h3 { font-size: clamp(22px, 2vw, 29px); margin: 15px 38px 12px 0; }
-.news-card > p { color: var(--ink-soft); font-size: var(--fs-body-sm); margin-bottom: 0; }
+.news-card > p {
+  color: var(--ink-soft);
+  font-size: var(--fs-body-sm);
+  margin-bottom: 0;
+  padding-right: 58px;
+}
 .card-arrow { position: absolute; right: 0; bottom: 32px; color: var(--signal); text-decoration: none; font-size: 25px; transition: transform var(--dur-base) var(--ease-out); }
-.news-card:hover .card-arrow { transform: translateX(4px); }
+.news-card:hover .card-arrow { transform: translate(4px, -4px); }
 .graphic-media {
   position: relative;
   padding: clamp(28px, 4vw, 52px);
@@ -1641,4 +1646,34 @@ p { margin: 0 0 1em; text-wrap: pretty; }
   .article-share > span { writing-mode: horizontal-tb; margin: 0 6px 0 0; }
   .article-body blockquote { margin-inline: 0; padding-left: 22px; }
   .related-head { align-items: flex-start; flex-direction: column; }
+}
+
+/* Diagonal action arrows — the shared 45-degree brand gesture. */
+.arrow,
+.link-arrow > span[aria-hidden="true"],
+.card-arrow > span[aria-hidden="true"],
+.article-back > span[aria-hidden="true"] {
+  display: inline-block;
+  font-size: 0;
+  line-height: 1;
+}
+.arrow::after,
+.link-arrow > span[aria-hidden="true"]::after,
+.card-arrow > span[aria-hidden="true"]::after {
+  content: "\2197";
+  display: inline-block;
+  font-size: 1rem;
+  line-height: 1;
+}
+.arrow::after,
+.link-arrow > span[aria-hidden="true"]::after,
+.article-back > span[aria-hidden="true"]::after {
+  transform: translateY(2px);
+}
+.card-arrow > span[aria-hidden="true"]::after { font-size: 27px; }
+.article-back > span[aria-hidden="true"]::after {
+  content: "\2196";
+  display: inline-block;
+  font-size: 1rem;
+  line-height: 1;
 }

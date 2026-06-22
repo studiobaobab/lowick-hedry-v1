@@ -354,4 +354,44 @@
       }
     });
   }
+
+  /* ----- News archive filters ----- */
+  var newsFilters = document.querySelectorAll('[data-news-filter]');
+  var newsItems = document.querySelectorAll('#newsGrid [data-news-item]');
+  var newsEmpty = document.getElementById('newsEmpty');
+  if (newsFilters.length && newsItems.length) {
+    newsFilters.forEach(function (button) {
+      button.addEventListener('click', function () {
+        var category = button.dataset.newsFilter;
+        var visible = 0;
+
+        newsFilters.forEach(function (item) {
+          var active = item === button;
+          item.classList.toggle('is-active', active);
+          item.setAttribute('aria-pressed', active ? 'true' : 'false');
+        });
+
+        newsItems.forEach(function (item) {
+          var show = category === 'all' || item.dataset.category === category;
+          item.hidden = !show;
+          if (show) visible += 1;
+        });
+
+        if (newsEmpty) newsEmpty.hidden = visible !== 0;
+      });
+    });
+  }
+
+  /* ----- Demo-only newsletter form ----- */
+  var newsletter = document.querySelector('.newsletter-form');
+  if (newsletter) {
+    newsletter.addEventListener('submit', function (event) {
+      event.preventDefault();
+      var button = newsletter.querySelector('button');
+      if (button) {
+        button.textContent = 'Thank you';
+        button.disabled = true;
+      }
+    });
+  }
 })();
